@@ -1,0 +1,61 @@
+---
+title: "Homework 1"
+author : Siddarth Arumugam
+date: September 2020
+output: github_document
+---
+
+This is my solution to HW1
+
+# Section 1
+
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+```{r}
+# this is a comment
+samp = rnorm(100)
+length(samp)
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r mean(samp)`.
+
+# Section 3
+
+### Data frame and plot
+
+The code chunk below creates a dataframe and generates a plot
+
+```{r plot_example}
+library(tidyverse)
+
+plot_df = tibble(
+  x = rnorm(500, mean = 2, sd = 4),
+  y = 3 - 4.2 * x + rnorm(500)
+)
+
+ggplot(plot_df, aes(x = x, y = y)) + geom_point()
+```
+
+Plot shows a linear relationship as expected.
+
+The dataframe has `r nrow(plot_df)` rows.
+
+Here is a list:
+
+* This is my first list item
+* Lists need 2 items at least
+  * This list has a sub-list item
+* Third list item
+
+### Table
+
+Col 1 | Col 2
+------|-------
+a     | b
+c     | d
+
+> This is a block quote
