@@ -23,7 +23,7 @@ prob1_df =
   )
 ```
 
-Take the mean of each variable in my data frame
+### Taking the mean of each variable in the data frame
 
 ```{r}
 mean(pull(prob1_df, samp))
@@ -32,21 +32,25 @@ mean(pull(prob1_df, char_vec))
 mean(pull(prob1_df, factor_vec))
 ```
 
-I can take the mean of numbers and logical but not character or factor
+The means of numbers and logical are valid but not for characters or factors
 
+
+### Type conversion
 ```{r}
 as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
+It is possible to convert numbers and logical values to their numeric equivalents. The factor variable is converted into the numberical equivalent of the 3 grades. Trying to convert the character vector throws an error. 
 
+### Type conversion and multiplying with the random sample
 ```{r}
 as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
 as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
 as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp) 
 ```
-
+Converting the logical vector to a numeric made it possible to multiply it with the random sample. Converting it to a factor, however resulted in an error when multiplying with the random sample. Converting the factor to a numeric allowed the arithmetic operation. 
 
 ## Problem 2
 
