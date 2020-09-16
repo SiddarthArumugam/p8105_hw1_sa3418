@@ -7,7 +7,7 @@ output: github_document
 
 This is my solution to HW1
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 ```
 
@@ -52,10 +52,20 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 
 ```{r}
 data("penguins", package = "palmerpenguins")
+head(penguins)
 ```
 
 
 ```{r}
+names(penguins)
+```
 
+The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+
+The mean flipper length in mm is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)` mm
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(na.rm = TRUE, aes(color = species, shape = species), size = 2.5)
+ggsave(filename = 'Scatter_Plot.pdf', plot = last_plot(), dpi = 600)
 ```
 
