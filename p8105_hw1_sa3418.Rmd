@@ -44,7 +44,7 @@ as.numeric(pull(prob1_df, factor_vec))
 ```{r}
 as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
 as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
-as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
+as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp) 
 ```
 
 
@@ -54,11 +54,8 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 data("penguins", package = "palmerpenguins")
 head(penguins)
 ```
+The dataset has column names that are [`r names(penguins)`]. The dataset represents the different species of penguins and their physical attributes (bill length in mm, bill depth in mm, flipper length in mm, body mass index, sex) and the islands they are found on. The dataset has `r length(unique(penguins[["species"]]))` species of penguins found on `r length(unique(penguins[["island"]]))` islands.
 
-
-```{r}
-names(penguins)
-```
 
 The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 
